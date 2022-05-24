@@ -1,15 +1,19 @@
 <template>
-  <div>
-    {{ html }}
-  </div>
+  <PrismicRichText v-if="content" :field="content" />
 </template>
 
 <script>
+
+import { PrismicRichText } from "@prismicio/vue";
+
 export default {
+  components: {
+    PrismicRichText,
+  },
   props: {
-    html: {
-      type: String,
-      default: "",
+    content: {
+      type: Array,
+      default: null,
     },
   },
 };

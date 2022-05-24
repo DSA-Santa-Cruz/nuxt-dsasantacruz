@@ -1,20 +1,18 @@
-import { defineNuxtConfig } from "nuxt3";
+import { defineNuxtConfig } from "nuxt";
 
 export default defineNuxtConfig({
-  buildModules: ["nuxt-use-motion"],
-  build: {
-    extend(config) {
-      // Include the compiler version of Vue so that <component-name> works
-      // eslint-disable-next-line no-param-reassign
-      config.resolve.alias.vue$ = "vue/dist/vue.esm.js";
-    },
-    postcss: {
-      postcssOptions: {
-        plugins: {
-          tailwindcss: {},
-          autoprefixer: {},
-        },
-      },
-    },
+  components: {
+    global: true,
+    dirs: ["~/components/"],
+  },
+  target: "static",
+  pageTransition: "page",
+  buildModules: [
+    "@nuxtjs/prismic",
+    "@nuxtjs/tailwindcss",
+  ],
+  prismic: {
+    endpoint: `https://${process.env.PRISMIC_REPO}.cdn.prismic.io/api/v2`,
+    modern: true,
   },
 });

@@ -2,11 +2,11 @@
   <div
     class="
       font-sans
-      text-stone-800
-      bg-stone-100
+      text-black
+      bg-white
       min-h-screen min-w-screen
-      w-full
       flex flex-col
+      w-full
     "
   >
     <OrganismsHeader />
@@ -18,20 +18,24 @@
 </template>
 
 <script>
-import './css/index.css';
 
 export default {
   head: {
     link: [
-      { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
       {
-        rel: 'preconnect',
-        href: 'https://fonts.gstatic.com',
+        rel: "preconnect",
+        href: "https://use.typekit.net",
         crossorigin: true,
       },
       {
-        href: 'https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,400;0,600;1,400;1,600&display=swap',
-        rel: 'stylesheet',
+        href: "https://use.typekit.net/apc6stb.css",
+        rel: "preload",
+        as: "style",
+      },
+      {
+        href: "https://use.typekit.net/apc6stb.css",
+        rel: "stylesheet",
       },
     ],
   },

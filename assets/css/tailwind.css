@@ -1,0 +1,75 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@font-face {
+  font-family:"graph";
+  src: url("../fonts/graph-condensed-paris-web.woff") format("woff2"),
+       url("../fonts/graph-condensed-paris-web.woff") format("woff");
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family:"graph";
+  src: url("../fonts/graph-condensed-paris-web.woff") format("woff2"),
+       url("../fonts/graph-condensed-paris-web.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+html {
+  @apply w-screen relative overflow-x-hidden antialiased;
+  font-size: 18px;
+  text-rendering: optimizeLegibility;
+
+  @screen sm {
+    font-size: 18px;
+  }
+
+  @screen md {
+    font-size: 18px;
+  }
+
+  @screen lg {
+    font-size: 20px;
+  }
+
+  @screen xl {
+    font-size: 28px;
+  }
+}
+
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+*::-webkit-scrollbar { /* WebKit */
+  width: 0;
+  height: 0;
+}
+
+
+.page-enter-active,
+.page-enter,
+.page-leave-active {
+  @apply transition duration-500;
+}
+.page-enter-from,
+.page-enter,
+.page-leave-to {
+  @apply opacity-0;
+}
+
+/* .page-leave-to {
+  @apply translate-x-4;
+}
+
+.page-enter-from,
+.page-enter {
+  @apply -translate-x-4;
+} */
