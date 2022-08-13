@@ -3,7 +3,7 @@
     <Container>
       <AtomsRichText
         class="
-          leading-normal
+          leading-loose
           max-w-2xl
           prose
           prose-a:decoration-red/30

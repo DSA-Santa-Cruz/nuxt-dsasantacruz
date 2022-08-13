@@ -23,9 +23,9 @@
 }
 
 html {
-  @apply w-screen relative overflow-x-hidden antialiased;
+  @apply w-screen relative overflow-x-hidden;
   font-size: 18px;
-  text-rendering: optimizeLegibility;
+  /* text-rendering: optimizeLegibility; */
 
   @screen sm {
     font-size: 18px;

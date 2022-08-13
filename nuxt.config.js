@@ -7,12 +7,13 @@ export default defineNuxtConfig({
   },
   target: "static",
   pageTransition: "page",
-  buildModules: [
+  layoutTransition: "page",
+  modules: [
     "@nuxtjs/prismic",
     "@nuxtjs/tailwindcss",
   ],
   prismic: {
-    endpoint: `https://${process.env.PRISMIC_REPO}.cdn.prismic.io/api/v2`,
-    modern: true,
+    linkResolver: "@/app/prismic/linkResolver",
+    endpoint: process.env.PRISMIC_REPO,
   },
 });

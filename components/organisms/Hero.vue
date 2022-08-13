@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import linkResolver from "@/prismic/link-resolver";
+import linkResolver from "@/app/prismic/prismicLinkResolver";
 
 export default {
   props: {

@@ -13,7 +13,6 @@
     <main class="flex-grow flex flex-col">
       <NuxtPage />
     </main>
-    <OrganismsFooter />
   </div>
 </template>
 

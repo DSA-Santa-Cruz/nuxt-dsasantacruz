@@ -76,11 +76,7 @@ export default {
           year: e.end.dateTime,
           time: e.end.dateTime,
         },
-        // raw: e.description,
-        description: (`${`<p>${(e.description && e.description.includes("---")
-          ? e.description.split("---")[0]
-          : e.description
-        )?.replace(/<br>/g, "</p><p>")}</p>`.split("</p>")[0]}</p>`),
+        description: e.description.replace(/<p>(<br>)<\/p>/g, "").replace(/<(.*?)><\/\1>/g, ""),
       };
     })));
     return { events };

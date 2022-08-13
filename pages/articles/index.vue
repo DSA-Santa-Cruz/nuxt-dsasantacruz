@@ -97,8 +97,9 @@
               </nuxt-link>
             </div>
           </div>
-          <div v-if="visible < articles.length - 4" class="w-full mt-6 order-3">
+          <div v-if="visible < articles.length - 4" class="w-full flex gap-x-3 mt-6 order-3">
             <AtomsButton @click="visible += 5">Show More</AtomsButton>
+            <AtomsIconLink @click="visible = 9999">Show All</AtomsIconLink>
           </div>
         </div>
       </Container>

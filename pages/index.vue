@@ -10,8 +10,9 @@
       :linklink="document.data.hero[0].secondary_link"
     />
     <OrganismsArticlesTeaser />
-    <OrganismsUpcomingEvents />
-    <OrganismsSignUpJoinCta />
+    <LazyOrganismsUpcomingEvents />
+    <LazyOrganismsSignUpJoinCta />
+    <LazyOrganismsFooter />
   </div>
 </template>
 
@@ -20,6 +21,7 @@ export default {
   async setup() {
     const { client } = usePrismic();
     const { data: document } = await useAsyncData("home", () => client.getSingle("home"));
+    console.log(document);
     return { document };
   },
 };

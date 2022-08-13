@@ -6,7 +6,10 @@
       :key="component.slice_type + i"
       :primary="component.primary"
       :items="component.items.length > 0 ? component.items : null"
-      class="my-10 sm:my-16 py-px"
+      :class="{
+        'my-10 sm:my-16 py-px': component.slice_type !== 'hero',
+        '-mt-12': component.slice_type === 'hero' && i === 0,
+      }"
     />
   </div>
 </template>

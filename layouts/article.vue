@@ -46,7 +46,7 @@
     <main class="flex-grow flex flex-col">
       <NuxtPage />
     </main>
-    <OrganismsFooter />
+    <LazyOrganismsFooter />
   </div>
 </template>
 
