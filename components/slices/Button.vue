@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center justify-center">
-    <btn :link="primary.link" variant="lg">{{ primary.text }}</btn>
+    <AtomsButton :link="primary.link" variant="lg">{{ primary.text }}</AtomsButton>
   </div>
 </template>
 

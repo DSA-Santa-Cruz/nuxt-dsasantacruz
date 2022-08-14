@@ -50,7 +50,7 @@
         </tbody>
       </table>
       <div class="flex w-full mt-2">
-        <prismic-rich-text
+        <AtomsRichText
           v-if="primary.caption !== null"
           class="italic text-xs mt-2 leading-tight rich-text max-w-xl"
           :richtext="primary.caption"

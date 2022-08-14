@@ -3,11 +3,7 @@
     <OrganismsArticleHero
       :image="article.data.featured_image || article.data.meta_image"
       :date="article.date || article.first_publication_date"
-      :author="
-        article?.data?.custom_byline ||
-        article?.data?.author?.data?.full_name ||
-        'DSA Members'
-      "
+      :author="article.data.custom_byline || article.data.author.data.full_name"
       :heading="article.data.title"
       :copy="article.data.meta_description"
     />
@@ -42,24 +38,25 @@
 </template>
 
 <script>
-const getPage = async (client, uid) => {
-  const res = await client.getByUID("article", uid);
-  return res;
-};
-
 definePageMeta({
   layout: "article",
 });
-
 export default {
   async setup() {
+    const { client } = usePrismic();
     const { params } = useRoute();
     const { id: uid } = params;
+    const { data: article } = await useAsyncData(
+      `articles-${uid}`,
+      async () => {
+        const res = await client.getByUID("article", uid, {
+          fetchLinks: "author.full_name",
+        });
+        return res;
+      },
+    );
 
-    const { client } = usePrismic();
-    const { data: article } = await useAsyncData(`articles-${uid}`, async () => getPage(client, uid));
-
-    return { uid, article };
+    return { article };
   },
   // script
 };

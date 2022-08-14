@@ -7,14 +7,14 @@
           v-if="primary.copy.length > 0"
           class="mt-4 max-w-md text-lg mx-auto"
         >
-          <prismic-rich-text
+          <AtomsRichText
             v-if="primary.copy !== null"
             class="leading-normal rich-text"
             :richtext="primary.copy"
           />
         </div>
         <div class="flex items-center justify-center mt-8">
-          <btn :link="primary.button_link">{{ primary.button_text }}</btn>
+          <AtomsButton :link="primary.button_link">{{ primary.button_text }}</AtomsButton>
         </div>
       </div>
     </container>

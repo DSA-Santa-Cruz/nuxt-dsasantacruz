@@ -6,14 +6,14 @@
           <div class="text-black text-sm tracking-1 uppercase font-bold">
             {{ primary.heading }}
           </div>
-          <prismic-rich-text
+          <AtomsRichText
             v-if="primary.subheading !== null"
             class="leading-tight text-center text-sm rich-text mt-1 md:px-6"
             :richtext="primary.subheading"
           />
         </div>
         <chart-pie :data="data" />
-        <prismic-rich-text
+        <AtomsRichText
           v-if="primary.caption !== null"
           class="leading-tight text-xxs italic uppercase tracking-1 text-gray-dark text-center rich-text mt-6 md:px-6"
           :richtext="primary.caption"
