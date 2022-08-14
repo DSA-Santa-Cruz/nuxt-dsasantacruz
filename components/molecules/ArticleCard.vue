@@ -16,7 +16,7 @@
           duration-200
         "
         :class="{
-          'text-xl': !large,
+          'text-xl lg:text-2xl': !large,
           'text-2xl': large,
         }"
       >
@@ -44,9 +44,9 @@
         {{ content.data.meta_description }}
       </p>
       <div v-if="showlink">
-        <AtomsIconLink class="text-red group-hover:text-black"
-          >Read More</AtomsIconLink
-        >
+        <AtomsIconLink class="text-red group-hover:text-black">
+          Read More
+        </AtomsIconLink>
       </div>
     </div>
   </nuxt-link>

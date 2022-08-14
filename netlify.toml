@@ -1,0 +1,17 @@
+
+[build]
+  functions = ".netlify/functions/"
+
+[[plugins]]
+package = "@netlify/plugin-sitemap"
+
+  [plugins.inputs]
+  buildDir = "dist"
+  exclude = [
+    './404',
+    './preview',
+    './offline',
+  ]
+
+[build.environment]
+  NODE_VERSION = "v16.16.0"

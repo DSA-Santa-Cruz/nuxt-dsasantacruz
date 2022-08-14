@@ -8,6 +8,7 @@
       :buttonlink="document.data.hero[0].button_link"
       :linklabel="document.data.hero[0].secondary_link_label"
       :linklink="document.data.hero[0].secondary_link"
+      big
     />
     <OrganismsArticlesTeaser />
     <LazyOrganismsUpcomingEvents />
@@ -20,7 +21,8 @@
 export default {
   async setup() {
     const { client } = usePrismic();
-    const { data: document } = await useAsyncData("home", () => client.getSingle("home"));
+    const getHome = () => client.getSingle("home");
+    const { data: document } = await useAsyncData("home", getHome);
     console.log(document);
     return { document };
   },

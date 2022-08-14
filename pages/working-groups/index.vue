@@ -8,8 +8,9 @@
       :linklabel="document.data.hero[0].secondary_link_label"
       :linklink="document.data.hero[0].secondary_link"
     />
-    <OrganismsWorkingGroups :groups="document.data.efforts" />
+    <LazyOrganismsWorkingGroups :groups="document.data.efforts" />
     <OrganismsSignUpJoinCta />
+    <LazyOrganismsFooter />
   </div>
 </template>
 

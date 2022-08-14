@@ -10,7 +10,7 @@
     "
   >
     <OrganismsHeader />
-    <main class="flex-grow flex flex-col">
+    <main class="flex-grow flex flex-col bg-red">
       <NuxtPage />
     </main>
   </div>

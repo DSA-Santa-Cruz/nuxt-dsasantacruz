@@ -4,7 +4,9 @@
       <h2 class="font-bold text-2xl text-white mb-4">
         <nuxt-link to="/events/">Upcoming Events &amp; Meetings</nuxt-link>
       </h2>
-      <p class="text-white my-4">Get the details on our upcoming actions and organizing sessions.</p>
+      <p class="text-white my-4">
+        Get the details on our upcoming actions and organizing sessions.
+      </p>
       <!-- <div class="text-white -mt-2 mb-6">
         <nuxt-link to="/events/" class="group"><AtomsIconLink>All Events</AtomsIconLink></nuxt-link>
       </div> -->
@@ -47,15 +49,9 @@
 </template>
 
 <script>
-
-export default {
-  async setup() {
-    const id = "g3tdlvc4g3fafvm1udas37futg@group.calendar.google.com";
-    const key = "AIzaSyADbeHsir4I0UgaxrJ96jgENd7rOtxerAk";
-    const start = new Date(new Date().getTime() - 24 * 60 * 60 * 1000);
-    const end = new Date(start.getTime() + 7 * 24 * 60 * 60 * 1000);
-    const url = `https://www.googleapis.com/calendar/v3/calendars/${id}/events?key=${key}&timeMin=${start.toISOString()}&timeMax=${end.toISOString()}&singleEvents=true&orderBy=startTime&showDeleted=false`;
-    const { data: events } = await useAsyncData("events", () => $fetch(url).then((res) => res.items.map((e) => {
+const getEvents = (fetch, url) =>
+  fetch(url).then(res =>
+    res.items.map(e => {
       const startTime = new Date(e.start.dateTime);
       return {
         // ...e,
@@ -76,10 +72,22 @@ export default {
           year: e.end.dateTime,
           time: e.end.dateTime,
         },
-        description: e.description.replace(/<p>(<br>)<\/p>/g, "").replace(/<(.*?)><\/\1>/g, ""),
+        description: e.description
+          .replace(/<p>(<br>)<\/p>/g, "")
+          .replace(/<(.*?)><\/\1>/g, ""),
       };
-    })));
-    return { events };
+    }),
+  );
+
+export default {
+  async setup() {
+    const id = "g3tdlvc4g3fafvm1udas37futg@group.calendar.google.com";
+    const key = "AIzaSyADbeHsir4I0UgaxrJ96jgENd7rOtxerAk";
+    const start = new Date(new Date().getTime() - 24 * 60 * 60 * 1000);
+    const end = new Date(start.getTime() + 7 * 24 * 60 * 60 * 1000);
+    const url = `https://www.googleapis.com/calendar/v3/calendars/${id}/events?key=${key}&timeMin=${start.toISOString()}&timeMax=${end.toISOString()}&singleEvents=true&orderBy=startTime&showDeleted=false`;
+    const { data } = await useAsyncData("events", () => getEvents($fetch, url));
+    return { events: data };
   },
 };
 </script>

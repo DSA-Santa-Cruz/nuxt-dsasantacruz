@@ -5,18 +5,18 @@
 @tailwind utilities;
 
 @font-face {
-  font-family:"graph";
+  font-family: "graph";
   src: url("../fonts/graph-condensed-paris-web.woff") format("woff2"),
-       url("../fonts/graph-condensed-paris-web.woff") format("woff");
+    url("../fonts/graph-condensed-paris-web.woff") format("woff");
   font-style: normal;
   font-weight: 800;
   font-display: swap;
 }
 
 @font-face {
-  font-family:"graph";
+  font-family: "graph";
   src: url("../fonts/graph-condensed-paris-web.woff") format("woff2"),
-       url("../fonts/graph-condensed-paris-web.woff") format("woff");
+    url("../fonts/graph-condensed-paris-web.woff") format("woff");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -36,23 +36,23 @@ html {
   }
 
   @screen lg {
-    font-size: 20px;
+    font-size: 19px;
   }
 
   @screen xl {
-    font-size: 28px;
+    font-size: 21px;
   }
 }
 
 * {
   scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
-*::-webkit-scrollbar { /* WebKit */
+*::-webkit-scrollbar {
+  /* WebKit */
   width: 0;
   height: 0;
 }
-
 
 .page-enter-active,
 .page-enter,

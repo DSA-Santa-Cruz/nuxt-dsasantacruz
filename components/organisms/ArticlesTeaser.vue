@@ -1,5 +1,5 @@
 <template>
-  <section class="py-12 lg:py-16">
+  <section class="py-12 lg:py-16 bg-white">
     <Container>
       <h2 class="font-graph text-red text-4xl tracking-1 mb-1 leading-none">
         <nuxt-link to="/articles/">Santa Cruz Left</nuxt-link>

@@ -6,11 +6,13 @@
       flex flex-col
       group
       p-6
+      lg:p-8
       relative
       overflow-hidden
       text-white
       transition
       duration-200
+      lg:min-h-1/3-screen
     "
   >
     <AtomsImage
@@ -25,9 +27,11 @@
           leading-[1.1]
           tracking-1
           text-3xl
+          lg:text-[3.5rem]
           font-graph
           text
-          transition duration-200
+          transition
+          duration-200
           group-hover:text-black
         "
       >

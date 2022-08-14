@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-white">
     <OrganismsHero
       :heading="document.data.hero[0].heading"
       :copy="document.data.hero[0].copy"
@@ -7,6 +7,8 @@
       :linklabel="document.data.hero[0].secondary_link_label"
       :image="document.data.hero[0].image"
     />
+    <LazyOrganismsIntro class="text-black" :content="document.data.intro[0]" />
+    <LazyOrganismsFooter />
   </div>
 </template>
 
@@ -14,8 +16,9 @@
 export default {
   async setup() {
     const { client } = usePrismic();
-    const { data: document } = await useAsyncData("about", () => client.getSingle("about"));
-    return { document };
+    const getAbout = () => client.getSingle("about");
+    const { data } = await useAsyncData("about", getAbout);
+    return { document: data };
   },
 };
 </script>

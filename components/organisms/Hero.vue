@@ -5,13 +5,13 @@
       flex flex-col
       justify-center
       bg-red
-      pb-24
-      pt-48
+      pb-16
+      pt-40
       text-white
       overflow-hidden
       relative
-      min-h-1/2-screen
     "
+    :class="{ 'min-h-1/2-screen': big, 'min-h-[35vh]': !big }"
   >
     <div
       v-if="image"
@@ -22,20 +22,23 @@
     </div>
     <div class="relative z-20">
       <Container>
-        <AtomsRichText
-          class="text-4xl max-w-xl whitespace-pre-wrap leading-tighter mb-6"
-          :content="heading"
-        />
-        <AtomsRichText class="text-lg max-w-xl" :content="copy">{{
-          copy
-        }}</AtomsRichText>
-        <div class="mt-8 flex space-x-6">
-          <nuxt-link v-if="buttonLinkUrl" :to="buttonLinkUrl">
-            <AtomsButton>{{ buttonlabel }}</AtomsButton>
-          </nuxt-link>
-          <nuxt-link v-if="linkLinkUrl" :to="linkLinkUrl">
-            <AtomsIconLink>{{ linklabel }}</AtomsIconLink>
-          </nuxt-link>
+        <div :class="{ 'max-w-2xl mx-auto': !big }">
+          <AtomsRichText
+            class="max-w-xl whitespace-pre-wrap leading-tighter mb-6"
+            :class="{ 'text-4xl': big, 'text-3xl': !big }"
+            :content="heading"
+          />
+          <AtomsRichText class="text-lg max-w-xl" :content="copy">
+            {{ copy }}
+          </AtomsRichText>
+          <div class="mt-8 flex space-x-6">
+            <nuxt-link v-if="buttonLinkUrl" :to="buttonLinkUrl">
+              <AtomsButton>{{ buttonlabel }}</AtomsButton>
+            </nuxt-link>
+            <nuxt-link v-if="linkLinkUrl" :to="linkLinkUrl">
+              <AtomsIconLink>{{ linklabel }}</AtomsIconLink>
+            </nuxt-link>
+          </div>
         </div>
       </Container>
     </div>
@@ -65,6 +68,10 @@ export default {
     linklabel: {
       type: String,
       default: null,
+    },
+    big: {
+      type: Boolean,
+      default: false,
     },
   },
   computed: {
