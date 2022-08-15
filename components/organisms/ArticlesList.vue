@@ -1,23 +1,13 @@
 <template>
   <div>
     <div
-      class="
-        bg-black
-        p-3
-        -mt-[4.5rem]
-        mb-6
-        md:w-[150%]
-        flex
-        gap-3
-        lg:gap-6
-        items-center
-      "
+      class="bg-black p-3 -mt-[4.5rem] mb-6 md:w-[150%] flex gap-3 items-center"
     >
       <!-- search -->
       <div class="flex items-center gap-2 max-w-sm relative">
         <IconsSearch
           class="h-4 w-4 relative fill-white flex-shrink-0"
-          :class="{ 'fill-red': query.length }"
+          :class="{ 'fill-red': query.length || sortOrder === 'relevant' }"
         />
         <input
           id="search"
@@ -49,11 +39,12 @@
       </div>
       <span class="text-red">|</span>
       <!-- sort order -->
-      <div>
+      <div class="bg-white">
         <select
           v-model="sortOrder"
           class="w-full max-w-sm text-red py-1 px-2 focus:outline-none"
         >
+          <option value="relevant">Most Relevant</option>
           <option value="recent">Most Recent</option>
           <option value="oldest">Oldest</option>
         </select>
@@ -69,13 +60,22 @@
       </li>
     </ul>
     <div
-      v-if="visible < articles.length - 4 && !query.length"
+      v-if="
+        visible < articles.length - 4 &&
+        !query.length &&
+        sortOrder !== 'relevant'
+      "
       class="w-full flex gap-x-3 mt-6"
     >
       <AtomsButton @click="visible += 5">Show More</AtomsButton>
       <AtomsIconLink @click="visible = 9999">Show All</AtomsIconLink>
     </div>
-    <p v-if="query.length && !results.length">
+    <p
+      v-if="
+        (query.length && !results.length) ||
+        (sortOrder === 'relevant' && !query.length)
+      "
+    >
       Sorry, your query returned no results.
     </p>
   </div>
@@ -118,13 +118,13 @@ export default {
     results() {
       const { sortOrder } = this;
       const getResults = () => {
-        if (this.query && this.search) {
+        if ((this.query || this.sortOrder === "relevant") && this.search) {
           const query = this.search.search(this.query).map(a => a.id);
           return query.map(id => this.content.find(a => a.id === id));
         }
         return this.articles;
       };
-      return getResults()
+      return [...getResults()]
         .sort((a, b) => {
           switch (sortOrder) {
             case "oldest":
