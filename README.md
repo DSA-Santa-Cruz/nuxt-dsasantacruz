@@ -1,4 +1,4 @@
 
-# nuxt-polite
+# DSA Santa Cruz
 
-a nuxt + tailwindcss + motion framework
+Front-end for DSA Santa Cruz
