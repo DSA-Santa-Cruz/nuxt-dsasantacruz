@@ -26,6 +26,7 @@
     "lodash.camelcase": "^4.3.0",
     "lodash.capitalize": "^4.2.1",
     "lodash.kebabcase": "^4.1.1",
+    "md5": "^2.3.0",
     "minisearch": "^5.0.0",
     "nuxt": "3.0.0-rc.3",
     "postcss": "^8.4.16",
