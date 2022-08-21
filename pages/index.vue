@@ -23,7 +23,6 @@ export default {
     const { client } = usePrismic();
     const getHome = () => client.getSingle("home");
     const { data: document } = await useAsyncData("home", getHome);
-    console.log(document);
     return { document };
   },
 };
