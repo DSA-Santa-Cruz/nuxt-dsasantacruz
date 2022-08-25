@@ -1,11 +1,15 @@
 <template>
   <form>
     <ul class="flex flex-wrap -mx-2">
-      <li class="w-full mb-2 px-2"><AtomsInput label="Email" /></li>
-      <li class="w-full mb-2 sm:w-3/5 px-2">
-        <AtomsInput label="First Name" />
+      <li class="w-full mb-2 px-2">
+        <AtomsInput label="Email" v-model="email" />
       </li>
-      <li class="w-full mb-2 sm:w-2/5 px-2"><AtomsInput label="ZIP" /></li>
+      <li class="w-full mb-2 sm:w-3/5 px-2">
+        <AtomsInput label="First Name" v-model="fName" />
+      </li>
+      <li class="w-full mb-2 sm:w-2/5 px-2">
+        <AtomsInput label="ZIP" v-model="zip" />
+      </li>
     </ul>
     <div class="mt-2 flex items-center">
       <div class="italic text-xs leading-tight w-auto pr-6">
@@ -39,7 +43,6 @@ export default {
         fName: null,
         email: null,
         zip: null,
-        state: null,
         error: null,
       },
     };
@@ -52,17 +55,11 @@ export default {
       if (this.form.email && this.form.fName && this.form.zip) {
         this.loading = true;
         axios
-          .post(
-            `${
-              this.env === "development" ? "http://localhost:62999" : ""
-            }/.netlify/functions/mailchimp`,
-            JSON.stringify(this.form),
-            {
-              headers: {
-                "content-type": "application/x-www-form-urlencoded",
-              },
+          .post(`/.netlify/functions/mailchimp`, JSON.stringify(this.form), {
+            headers: {
+              "content-type": "application/x-www-form-urlencoded",
             },
-          )
+          })
           .then(res => {
             if (!res.data.error) {
               this.$gtm.push({ event: "emailSignUp" });
