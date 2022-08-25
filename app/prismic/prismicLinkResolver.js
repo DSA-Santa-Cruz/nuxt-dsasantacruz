@@ -1,4 +1,7 @@
 export default (doc) => {
+  if (doc.url) {
+    return doc.url;
+  }
   if (doc && typeof doc === "object") {
     switch (doc.type) {
       case "home":
