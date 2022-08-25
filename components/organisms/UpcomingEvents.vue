@@ -86,7 +86,7 @@ export default {
     const start = new Date(new Date().getTime() - 24 * 60 * 60 * 1000);
     const end = new Date(start.getTime() + 7 * 24 * 60 * 60 * 1000);
     const url = `https://www.googleapis.com/calendar/v3/calendars/${id}/events?key=${key}&timeMin=${start.toISOString()}&timeMax=${end.toISOString()}&singleEvents=true&orderBy=startTime&showDeleted=false`;
-    const { data } = await useAsyncData("events", () => getEvents($fetch, url));
+    const { data } = await useAsyncData("avents", () => getEvents($fetch, url));
     return { events: data };
   },
 };

@@ -1,5 +1,6 @@
 <template>
   <div class="flex bg-red flex-col flex-grow">
+    <AtomsMeta :document="document" />
     <OrganismsArticleHero
       :image="article.data.featured_image || article.data.meta_image"
       :date="article.date || article.first_publication_date"
@@ -55,9 +56,9 @@ export default {
   async setup() {
     const { params } = useRoute();
     const { id: uid } = params;
-
+    const getData = () => getPage(client, uid);
     const { client } = usePrismic();
-    const { data: article } = await useAsyncData(`articles-${uid}`, async () => getPage(client, uid));
+    const { data: article } = await useAsyncData(`articles-${uid}`, getData);
 
     return { uid, article };
   },

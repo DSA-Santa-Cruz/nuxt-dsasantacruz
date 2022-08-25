@@ -1,5 +1,6 @@
 <template>
   <div>
+    <AtomsMeta :document="document" />
     <OrganismsHero
       :heading="document.data.hero[0].heading"
       :copy="document.data.hero[0].copy"

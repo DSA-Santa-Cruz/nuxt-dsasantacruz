@@ -1,5 +1,6 @@
 <template>
   <div>
+    <AtomsMeta :document="document" />
     <Container class="pt-3 pb-6">
       <div class="flex flex-wrap">
         <MoleculesArticleCardFeatured
@@ -104,7 +105,7 @@ export default {
   }),
   async setup() {
     const { client } = usePrismic();
-    const { data: articles } = await useAsyncData("articles", async () => {
+    const getData = async () => {
       const res = await client.getAllByType("article", {
         orderings: {
           field: "document.first_publication_date",
@@ -115,7 +116,8 @@ export default {
         lang: "en-us",
       });
       return res;
-    });
+    };
+    const { data: articles } = await useAsyncData("articles", getData);
 
     return { articles };
   },

@@ -1,5 +1,5 @@
 <template>
-  <div class="py-12">
+  <div class="pt-12 pb-16">
     <Container>
       <div class="max-w-2xl">
         <div class="text-xl sm:text-2xl mb-2 tracking-2 uppercase text-red">

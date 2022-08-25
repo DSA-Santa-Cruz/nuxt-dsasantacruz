@@ -1,5 +1,6 @@
 <template>
   <div>
+    <AtomsMeta :document="document" />
     <OrganismsHero
       :heading="document.data.hero[0].heading"
       :copy="document.data.hero[0].copy"
@@ -18,7 +19,8 @@
 export default {
   async setup() {
     const { client } = usePrismic();
-    const { data: document } = await useAsyncData("working-groups", () => client.getSingle("efforts"));
+    const getData = () => client.getSingle("efforts");
+    const { data: document } = await useAsyncData("groups", getData);
     return { document };
   },
 };

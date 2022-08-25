@@ -32,8 +32,8 @@ const buildURL = (url, params) => {
   return `${url}?${paramsURI}`;
 };
 
-const processMetaImage = (url, process = true) => {
-  const imgUrl = url || globalSettings.default_meta_image.url;
+const processMetaImage = (url, process = true, defaultImage) => {
+  const imgUrl = url || defaultImage;
   // set default params
   const defaultParams = {
     auto: "format,compress",
@@ -92,6 +92,13 @@ const processMetaImage = (url, process = true) => {
 };
 
 export default {
+  async setup() {
+    const { client } = usePrismic();
+    const getData = () => client.getSingle("global_settings");
+    const { data } = await useAsyncData("globals", getData);
+    console.log(data);
+    return { globalSettings: data };
+  },
   props: {
     document: {
       type: Object,
@@ -102,6 +109,8 @@ export default {
     meta_image() {
       const metaImageUrl = processMetaImage(
         this.document.data.meta_image.url,
+        true,
+        this.globalSettings.data.default_meta_image.url,
         // editPhoto,
       );
       return metaImageUrl;
