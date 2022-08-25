@@ -5,19 +5,19 @@
     <Container>
       <div class="flex items-center justify-between">
         <div class="flex items-center">
-          <nuxt-link to="/">
+          <NuxtLink to="/">
             <IconsLogomark class="h-20 w-20" />
-          </nuxt-link>
-          <span class="text-lg ml-1"> DSA Santa Cruz </span>
+          </NuxtLink>
+          <span class="text-lg ml-1">DSA Santa Cruz</span>
         </div>
         <ul class="hidden md:flex space-x-6 items-center text-sm lg:text-base">
           <li v-for="item in nav" :key="item">
-            <nuxt-link :to="item.url">{{ item.label }}</nuxt-link>
+            <NuxtLink :to="item.url">{{ item.label }}</NuxtLink>
           </li>
           <li>
-            <nuxt-link to="/join/">
+            <NuxtLink to="/join/">
               <AtomsButton>Join</AtomsButton>
-            </nuxt-link>
+            </NuxtLink>
           </li>
         </ul>
         <div class="flex md:hidden font-medium items-center">

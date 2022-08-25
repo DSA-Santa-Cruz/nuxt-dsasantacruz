@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link
+  <NuxtLink
     v-if="content"
     :to="`/articles/${content.uid}/`"
     class="flex flex-col group relative overflow-hidden"
@@ -49,7 +49,7 @@
         </AtomsIconLink>
       </div>
     </div>
-  </nuxt-link>
+  </NuxtLink>
 </template>
 
 <script>

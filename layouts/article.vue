@@ -16,9 +16,9 @@
             items-center
           "
         >
-          <nuxt-link to="/articles/" class="text-white hover:text-black">
+          <NuxtLink to="/articles/" class="text-white hover:text-black">
             <IconsSantaCruzLeft class="fill-current h-4" />
-          </nuxt-link>
+          </NuxtLink>
           <div
             class="
               uppercase
@@ -30,15 +30,17 @@
               items-center
             "
           >
-            <nuxt-link to="/articles/" class="text-white hover:text-black"
-              >More Articles</nuxt-link
-            >
+            <NuxtLink to="/articles/" class="text-white hover:text-black">
+              More Articles
+            </NuxtLink>
             <span class="bg-white w-[2px] h-2 mt-[2px] mx-1" />
-            <nuxt-link
+            <NuxtLink
               to="/"
               class="flex items-center hover:text-black transition duration-200"
-              ><span>Main Site</span> <IconsCircleArrow class="ml-1 w-3 h-3" />
-            </nuxt-link>
+            >
+              <span>Main Site</span>
+              <IconsCircleArrow class="ml-1 w-3 h-3" />
+            </NuxtLink>
           </div>
         </div>
       </Container>

@@ -56,7 +56,7 @@
             v-if="group.contact_email?.length"
             class="text-sm my-3 font-medium"
           >
-            <nuxt-link>{{ group.contact_email }}</nuxt-link>
+            <NuxtLink>{{ group.contact_email }}</NuxtLink>
           </p>
         </li>
       </ul>

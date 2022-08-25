@@ -34,8 +34,26 @@
             })
           }}
         </div>
-        <div class="uppercase font-bold tex-sm tracking-1 flex gap-x-1 items-center">
-          <span>Santa Cruz, CA</span> <span class="bg-red w-[2px] h-2 mt-[2px] mx-1" /> <nuxt-link to="/" class="flex items-center hover:text-black transition duration-200"><span>Main Site</span> <IconsCircleArrow class="ml-1 w-3 h-3" /></nuxt-link>
+        <div
+          class="
+            uppercase
+            font-bold
+            tex-sm
+            tracking-1
+            flex
+            gap-x-1
+            items-center
+          "
+        >
+          <span>Santa Cruz, CA</span>
+          <span class="bg-red w-[2px] h-2 mt-[2px] mx-1" />
+          <NuxtLink
+            to="/"
+            class="flex items-center hover:text-black transition duration-200"
+          >
+            <span>Main Site</span>
+            <IconsCircleArrow class="ml-1 w-3 h-3" />
+          </NuxtLink>
         </div>
         <div class="w-full"><IconsSantaCruzLeft class="fill-red" /></div>
       </div>
@@ -48,7 +66,6 @@
 </template>
 
 <script>
-
 export default {
   head: {
     link: [

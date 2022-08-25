@@ -32,12 +32,12 @@
             {{ copy }}
           </AtomsRichText>
           <div class="mt-8 flex space-x-6">
-            <nuxt-link v-if="buttonLinkUrl" :to="buttonLinkUrl">
+            <NuxtLink v-if="buttonLinkUrl" :to="buttonLinkUrl">
               <AtomsButton>{{ buttonlabel }}</AtomsButton>
-            </nuxt-link>
-            <nuxt-link v-if="linkLinkUrl" :to="linkLinkUrl">
+            </NuxtLink>
+            <NuxtLink v-if="linkLinkUrl" :to="linkLinkUrl">
               <AtomsIconLink>{{ linklabel }}</AtomsIconLink>
-            </nuxt-link>
+            </NuxtLink>
           </div>
         </div>
       </Container>

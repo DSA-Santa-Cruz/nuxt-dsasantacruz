@@ -119,14 +119,19 @@ export default {
       const { sortOrder } = this;
       const getResults = () => {
         if ((this.query || this.sortOrder === "relevant") && this.search) {
-          const query = this.search.search(this.query).map(a => a.id);
-          return query.map(id => this.content.find(a => a.id === id));
+          const query = this.search.search(this.query);
+          return query.map(a => ({
+            ...a,
+            ...this.content.find(aa => aa.id === a.id),
+          }));
         }
         return this.articles;
       };
       return [...getResults()]
         .sort((a, b) => {
           switch (sortOrder) {
+            case "relevant":
+              return b.score - a.score;
             case "oldest":
               return (a.data.date || a.first_publication_date).localeCompare(
                 b.data.date || b.first_publication_date,

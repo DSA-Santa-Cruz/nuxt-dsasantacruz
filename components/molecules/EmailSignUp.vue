@@ -10,9 +10,9 @@
     <div class="mt-2 flex items-center">
       <div class="italic text-xs leading-tight w-auto pr-6">
         By submitting this form, you are agreeing to our
-        <nuxt-link to="/privacy/" class="underline decoration-1">
+        <NuxtLink to="/privacy/" class="underline decoration-1">
           privacy policy
-        </nuxt-link>
+        </NuxtLink>
         .
       </div>
       <div class="flex-shrink-0 flex justify-end w-auto">

@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link
+  <NuxtLink
     v-if="content"
     :to="`/articles/${content.uid}/`"
     class="
@@ -58,7 +58,7 @@
         {{ content.data.meta_description }}
       </p>
     </div>
-  </nuxt-link>
+  </NuxtLink>
 </template>
 
 <script>

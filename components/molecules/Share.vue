@@ -3,9 +3,9 @@
     class="flex items-center flex-wrap"
     :class="{ 'gap-x-2': small, 'gap-x-3': !small }"
   >
-    <nuxt-link
+    <NuxtLink
       :to="`https://www.facebook.com/dialog/feed?app_id=${appid}&link=${encodeURIComponent(
-        url
+        url,
       )}`"
       class="text-white hover:text-black"
     >
@@ -14,8 +14,8 @@
         :class="{ 'w-6 h-6': small, 'w-8 h-8': !small }"
       />
       <span class="hidden">facebook</span>
-    </nuxt-link>
-    <nuxt-link
+    </NuxtLink>
+    <NuxtLink
       :to="`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}`"
       rel="noopener noreferrer"
       class="text-white hover:text-black"
@@ -25,7 +25,7 @@
         :class="{ 'w-6 h-6': small, 'w-8 h-8': !small }"
       />
       <span class="hidden">twitter</span>
-    </nuxt-link>
+    </NuxtLink>
   </div>
 </template>
 

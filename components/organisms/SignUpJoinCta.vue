@@ -24,7 +24,7 @@
           </ul>
           <p class="mt-3">You can join DSA wherever you are.</p>
           <div class="mt-4">
-            <nuxt-link to="/join/"><AtomsButton>Join Now</AtomsButton></nuxt-link>
+            <NuxtLink to="/join/"><AtomsButton>Join Now</AtomsButton></NuxtLink>
           </div>
         </div>
       </div>

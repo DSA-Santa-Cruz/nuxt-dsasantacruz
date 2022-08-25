@@ -1,10 +1,10 @@
 <template>
   <div class="flex items-center justify-center">
-    <nuxt-link v-if="buttonLinkUrl" :to="buttonLinkUrl">
+    <NuxtLink v-if="buttonLinkUrl" :to="buttonLinkUrl">
       <AtomsButton variant="lg">
         {{ primary.text }}
       </AtomsButton>
-    </nuxt-link>
+    </NuxtLink>
   </div>
 </template>
 

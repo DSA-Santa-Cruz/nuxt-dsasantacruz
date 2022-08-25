@@ -19,8 +19,9 @@
           </span>
           <span
             class="ml-2 lg:ml-3 font-medium max-w-[14rem] leading-tight text-sm"
-            >Democratic Socialists of America, Santa Cruz</span
           >
+            Democratic Socialists of America, Santa Cruz
+          </span>
         </div>
         <!-- navs -->
         <div
@@ -46,7 +47,7 @@
             "
           >
             <li v-for="item in primaryNav" :key="item">
-              <nuxt-link :to="item.url">{{ item.label }}</nuxt-link>
+              <NuxtLink :to="item.url">{{ item.label }}</NuxtLink>
             </li>
           </ul>
           <!-- secondary nav -->
@@ -62,7 +63,7 @@
             "
           >
             <li v-for="item in secondaryNav" :key="item">
-              <nuxt-link :to="item.url">{{ item.label }}</nuxt-link>
+              <NuxtLink :to="item.url">{{ item.label }}</NuxtLink>
             </li>
           </ul>
         </div>

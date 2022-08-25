@@ -2,13 +2,13 @@
   <section class="bg-red py-12">
     <Container>
       <h2 class="font-bold text-2xl text-white mb-4">
-        <nuxt-link to="/events/">Upcoming Events &amp; Meetings</nuxt-link>
+        <NuxtLink to="/events/">Upcoming Events &amp; Meetings</NuxtLink>
       </h2>
       <p class="text-white my-4">
         Get the details on our upcoming actions and organizing sessions.
       </p>
       <!-- <div class="text-white -mt-2 mb-6">
-        <nuxt-link to="/events/" class="group"><AtomsIconLink>All Events</AtomsIconLink></nuxt-link>
+        <NuxtLink to="/events/" class="group"><AtomsIconLink>All Events</AtomsIconLink></NuxtLink>
       </div> -->
       <ul class="-mx-6 mt-6">
         <li

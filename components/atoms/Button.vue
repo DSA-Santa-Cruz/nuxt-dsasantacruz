@@ -15,6 +15,8 @@
       transition
       hover:shadow-lg hover:scale-105
       duration-100
+      inline-flex
+      items-center
     "
   >
     <slot />

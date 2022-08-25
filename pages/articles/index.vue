@@ -55,15 +55,15 @@
             <div class="mb-8 mt-3 pt-0 border-t-2 border-white">
               <h3 class="font-graph uppercase text-xl tracking-1">Follow Us</h3>
               <div class="flex gap-x-3 mt-3">
-                <nuxt-link to="https://www.facebook.com/DSASantaCruz/">
+                <NuxtLink to="https://www.facebook.com/DSASantaCruz/">
                   <IconsFacebook class="w-8 h-8 fill-white hover:fill-black" />
-                </nuxt-link>
-                <nuxt-link to="https://twitter.com/dsasantacruz">
+                </NuxtLink>
+                <NuxtLink to="https://twitter.com/dsasantacruz">
                   <IconsTwitter class="w-8 h-8 fill-white hover:fill-black" />
-                </nuxt-link>
-                <nuxt-link to="https://www.instagram.com/dsasantacruz/">
+                </NuxtLink>
+                <NuxtLink to="https://www.instagram.com/dsasantacruz/">
                   <IconsInstagram class="w-8 h-8 fill-white hover:fill-black" />
-                </nuxt-link>
+                </NuxtLink>
               </div>
             </div>
             <!-- <div class="mb-8 pt-1 border-t-2 border-white">
@@ -82,9 +82,9 @@
               <h3 class="font-graph uppercase text-xl tracking-1">
                 Fight Capitalism.
               </h3>
-              <nuxt-link to="/join/" class="block mt-3">
+              <NuxtLink to="/join/" class="block mt-3">
                 <AtomsButton>Join DSA</AtomsButton>
-              </nuxt-link>
+              </NuxtLink>
             </div>
           </div>
         </div>

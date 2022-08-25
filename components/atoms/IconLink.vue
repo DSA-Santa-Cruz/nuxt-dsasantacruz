@@ -11,12 +11,12 @@
         ml-1
         stroke-white
         transition
-        duration-200
+        duration-100
         transform
         hover:translate-x-1
         group-hover:translate-x-1
       "
-      :class="{'rotate-90':direction==='down'}"
+      :class="{ 'rotate-90': direction === 'down' }"
       viewBox="0 0 512 512"
     >
       <path
