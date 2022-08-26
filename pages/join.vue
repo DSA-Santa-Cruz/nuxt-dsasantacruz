@@ -43,7 +43,6 @@ export default {
   async setup() {
     const { client } = usePrismic();
     const { data } = await useAsyncData("join", () => client.getSingle("join"));
-    console.log(data);
     return { document: data };
   },
   computed: {

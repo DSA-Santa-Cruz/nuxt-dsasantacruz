@@ -1,9 +1,9 @@
 <template>
   <Head>
-    <Title>
+    <title>
       {{ document.data.meta_title || document.title + " | DSA Santa Cruz" }}
-    </Title>
-    <Meta name="description" :content="document.data.meta_description" />
+    </title>
+    <meta name="description" :content="document.data.meta_description" />
     <meta name="og:title" content="The Rock" />
     <meta name="og:type" content="movie" />
     <meta name="og:url" content="http://www.imdb.com/title/tt0117500/" />
@@ -96,7 +96,6 @@ export default {
     const { client } = usePrismic();
     const getData = () => client.getSingle("global_settings");
     const { data } = await useAsyncData("globals", getData);
-    console.log(data);
     return { globalSettings: data };
   },
   props: {
