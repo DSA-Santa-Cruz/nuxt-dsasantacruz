@@ -1,16 +1,16 @@
 <template>
-  <Head>
+  <Head v-if="content">
     <title>
-      {{ document.data.meta_title || document.title + " | DSA Santa Cruz" }}
+      {{ content.data.meta_title || content.title + " | DSA Santa Cruz" }}
     </title>
-    <meta name="description" :content="document.data.meta_description" />
+    <meta name="description" :content="content.data.meta_description" />
     <meta name="og:title" content="The Rock" />
     <meta name="og:type" content="movie" />
     <meta name="og:url" content="http://www.imdb.com/title/tt0117500/" />
     <meta name="og:image" :content="meta_image" />
     <meta name="og:site_name" content="DSA Santa Cruz" />
 
-    <meta name="og:description" :content="document.data.meta_description" />
+    <meta name="og:description" :content="content.data.meta_description" />
 
     <meta name="fb:page_id" content="269204910201952" />
     <meta name="og:email" content="info@dsasantacruz.org" />
@@ -99,7 +99,7 @@ export default {
     return { globalSettings: data };
   },
   props: {
-    document: {
+    content: {
       type: Object,
       default: null,
     },
@@ -107,7 +107,7 @@ export default {
   computed: {
     meta_image() {
       const metaImageUrl = processMetaImage(
-        this.document.data.meta_image.url,
+        this.content.data.meta_image.url,
         true,
         this.globalSettings.data.default_meta_image.url,
         // editPhoto,

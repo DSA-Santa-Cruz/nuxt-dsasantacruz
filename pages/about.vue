@@ -1,6 +1,6 @@
 <template>
   <div class="bg-white">
-    <AtomsMeta :document="document" />
+    <AtomsMeta :content="document" />
     <OrganismsHero
       :heading="document.data.hero[0].heading"
       :copy="document.data.hero[0].copy"

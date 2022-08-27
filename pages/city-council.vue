@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AtomsMeta :document="document" />
+    <AtomsMeta :content="document" />
     <div class="bg-black" style="background: #000">
       <container>
         <div class="relative w-full" style="padding-bottom: 56.25%">

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AtomsMeta :document="document" />
+    <AtomsMeta :content="document" />
     <LazyOrganismsUpcomingEvents all />
     <LazyOrganismsFooter />
   </div>

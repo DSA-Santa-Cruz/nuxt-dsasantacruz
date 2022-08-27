@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AtomsMeta :document="document" />
+    <AtomsMeta :content="document" />
     <Container class="pt-3 pb-6">
       <div class="flex flex-wrap">
         <MoleculesArticleCardFeatured
@@ -117,9 +117,11 @@ export default {
       });
       return res;
     };
-    const { data: articles } = await useAsyncData("articles", getData);
+    const getIndex = () => client.getSingle("article_index");
 
-    return { articles };
+    const { data: articles } = await useAsyncData("articles", getData);
+    const { data: document } = await useAsyncData("articlesIndex", getIndex);
+    return { articles, document };
   },
   computed: {
     featured() {

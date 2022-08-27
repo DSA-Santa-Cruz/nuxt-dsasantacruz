@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AtomsMeta :document="document" />
+    <AtomsMeta :content="document" />
     <LazyOrganismsContent class="text-black" :content="document.data.body" />
     <LazyOrganismsFooter />
   </div>

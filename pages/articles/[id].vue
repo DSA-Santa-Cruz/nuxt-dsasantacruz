@@ -1,6 +1,6 @@
 <template>
   <div class="flex bg-red flex-col flex-grow">
-    <AtomsMeta :document="document" />
+    <AtomsMeta :content="document" />
     <OrganismsArticleHero
       :image="article.data.featured_image || article.data.meta_image"
       :date="article.date || article.first_publication_date"

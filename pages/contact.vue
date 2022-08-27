@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AtomsMeta :document="document" />
+    <AtomsMeta :content="document" />
     <OrganismsContent class="text-black" :content="document.data.body" />
   </div>
 </template>
