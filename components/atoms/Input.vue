@@ -7,12 +7,17 @@
       :name="label"
       :type="type"
       class="w-full bg-white px-3 py-2 tracking-tighter text-black text-sm"
-      @input="$emit('input', $event.target.value)"
+      @input="updateValue"
     />
   </label>
 </template>
 
 <script>
+const emit = defineEmits(["update:modelValue"]);
+const updateValue = event => {
+  emit("update:modelValue", event.target.value);
+};
+</script>
 export default {
   props: {
     label: {
