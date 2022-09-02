@@ -1,5 +1,6 @@
 <template>
   <section class="py-12 bg-white">
+    <AtomsMeta :content="document" />
     <Container>
       <div class="max-w-2xl mx-auto">
         <div class="flex items-center mb-12 max-w-md relative">
