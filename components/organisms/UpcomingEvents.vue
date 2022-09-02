@@ -10,7 +10,7 @@
       <!-- <div class="text-white -mt-2 mb-6">
         <NuxtLink to="/events/" class="group"><AtomsIconLink>All Events</AtomsIconLink></NuxtLink>
       </div> -->
-      <ul class="-mx-6 mt-6">
+      <ul v-if="events" class="-mx-6 mt-6">
         <li
           v-for="event in events"
           :key="event.title + event.dateTime"
@@ -89,12 +89,24 @@ export default {
     const end = new Date(start.getTime() + 30 * 24 * 60 * 60 * 1000);
     const url = `https://www.googleapis.com/calendar/v3/calendars/${id}/events?key=${key}&timeMin=${start.toISOString()}&timeMax=${end.toISOString()}&singleEvents=true&orderBy=startTime&showDeleted=false`;
     const { data } = await useAsyncData("avents", () => getEvents($fetch, url));
-    return { events: data };
+    return { allEvents: data };
   },
   props: {
     all: {
       type: Boolean,
       default: false,
+    },
+  },
+  computed: {
+    events() {
+      if (!this.all) {
+        const firstDay = new Date();
+        const nextWeek = new Date(firstDay.getTime() + 7 * 24 * 60 * 60 * 1000);
+        return this.allEvents.filter(
+          e => e.dateTime.getTime() < nextWeek.getTime(),
+        );
+      }
+      return this.allEvents;
     },
   },
 };

@@ -12,7 +12,14 @@
     <div class="h-px bg-white mx-6 mt-3 -mb-3" />
     <div
       v-if="success === true"
-      class="flex flex-grow flex-col items-center justify-center text-center pt-6 pb-12"
+      class="
+        flex flex-grow flex-col
+        items-center
+        justify-center
+        text-center
+        pt-6
+        pb-12
+      "
     >
       <h2 class="text-xl font-bold">Thank you!</h2>
       <p v-if="transaction.amount" class="m-4">
@@ -22,7 +29,16 @@
     </div>
     <div
       v-if="!loaded"
-      class="absolute inset-0 z-10 bg-red/50 text-white flex flex-col items-center justify-center"
+      class="
+        absolute
+        inset-0
+        z-10
+        bg-red/50
+        text-white
+        flex flex-col
+        items-center
+        justify-center
+      "
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +65,12 @@
     >
       <button type="submit" disabled style="display: none" aria-hidden="true" />
       <div
-        class="flex flex-shrink-0 flex-grow items-stretch transition duration-200"
+        class="
+          flex flex-shrink-0 flex-grow
+          items-stretch
+          transition
+          duration-200
+        "
         style="width: 300%"
         :class="{
           '-translate-x-none': stage === 0,
@@ -170,7 +191,17 @@
           <!-- credit card -->
           <span class="text-xs font-bold mb-1">Credit Card</span>
           <div
-            class="rounded text-black px-[.67rem] py-2 leading-[1.1] h-[2.1rem] bg-white flex items-center"
+            class="
+              rounded
+              text-black
+              px-[.67rem]
+              py-2
+              leading-[1.1]
+              h-[2.1rem]
+              bg-white
+              flex
+              items-center
+            "
             :class="{ 'border-l-red': isFocused, 'border-l-gray': !isFocused }"
           >
             <div class="w-full" ref="cc" />
@@ -338,8 +369,13 @@ export default {
                   },
                 },
               })
+              .then(res => res.json())
               // eslint-disable-next-line func-names
               .then(result => {
+                if (result?.error) {
+                  handleError(result);
+                  return;
+                }
                 handleSuccess(result);
               });
           });
