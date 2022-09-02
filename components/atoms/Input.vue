@@ -22,6 +22,10 @@ const updateValue = event => {
 <script>
 export default {
   props: {
+    type: {
+      type: String,
+      default: "text",
+    },
     label: {
       type: String,
       default: null,
@@ -29,3 +33,4 @@ export default {
   },
 };
 </script>
+
