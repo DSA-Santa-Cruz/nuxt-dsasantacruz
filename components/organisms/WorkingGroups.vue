@@ -58,7 +58,9 @@
               v-if="group.contact_email?.length"
               class="text-sm my-3 font-medium"
             >
-              <NuxtLink>{{ group.contact_email }}</NuxtLink>
+              <NuxtLink :to="`mailto:${group.contact_email}`">
+                {{ group.contact_email }}
+              </NuxtLink>
             </p>
           </li>
         </ul>
