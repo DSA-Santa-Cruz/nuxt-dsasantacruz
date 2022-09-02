@@ -20,12 +20,14 @@
             class="
               bg-black
               text-white
-              p-6
+              py-6
               flex flex-col
               items-center
               justify-center
               tabular-nums
               tracking-1
+              flex-shrink-0
+              w-32
             "
           >
             <span class="text-xs uppercase">{{ event.month }}</span>
@@ -82,12 +84,18 @@ const getEvents = (fetch, url) =>
 export default {
   async setup() {
     const id = "g3tdlvc4g3fafvm1udas37futg@group.calendar.google.com";
-    const key = process.env.GOOGLE_CAL_KEY;
+    const key = process?.env?.GOOGLE_CAL_KEY || "";
     const start = new Date(new Date().getTime() - 24 * 60 * 60 * 1000);
-    const end = new Date(start.getTime() + 7 * 24 * 60 * 60 * 1000);
+    const end = new Date(start.getTime() + 30 * 24 * 60 * 60 * 1000);
     const url = `https://www.googleapis.com/calendar/v3/calendars/${id}/events?key=${key}&timeMin=${start.toISOString()}&timeMax=${end.toISOString()}&singleEvents=true&orderBy=startTime&showDeleted=false`;
     const { data } = await useAsyncData("avents", () => getEvents($fetch, url));
     return { events: data };
+  },
+  props: {
+    all: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>

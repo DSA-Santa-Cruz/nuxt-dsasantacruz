@@ -36,7 +36,7 @@
     <div class="bg-red py-12 mt-6">
       <Container>
         <div class="flex flex-wrap w-full items-start">
-          <LazyOrganismsArticlesList
+          <OrganismsArticlesList
             class="w-full md:w-3/5 lg:w-2/3 order-2 md:order-1"
             :articles="articles"
           />
@@ -118,7 +118,6 @@ export default {
       return res;
     };
     const getIndex = () => client.getSingle("article_index");
-
     const { data: articles } = await useAsyncData("articles", getData);
     const { data: document } = await useAsyncData("articlesIndex", getIndex);
     return { articles, document };

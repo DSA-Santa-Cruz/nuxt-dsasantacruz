@@ -81,6 +81,7 @@ export default {
       { label: "About", url: "/about/" },
       { label: "Join DSA", url: "/join/" },
       { label: "Contact", url: "/contact" },
+      { label: "Donate", url: "/donate/" },
     ],
     secondaryNav: [
       { label: "Facebook", url: "https://www.facebook.com/DSASantaCruz/" },

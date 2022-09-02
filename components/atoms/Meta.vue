@@ -4,9 +4,10 @@
       {{ content.data.meta_title || content.title + " | DSA Santa Cruz" }}
     </title>
     <meta name="description" :content="content.data.meta_description" />
-    <meta name="og:title" content="The Rock" />
-    <meta name="og:type" content="movie" />
-    <meta name="og:url" content="http://www.imdb.com/title/tt0117500/" />
+    <meta
+      name="og:title"
+      :content="content.data.meta_title || content.title + ' | DSA Santa Cruz'"
+    />
     <meta name="og:image" :content="meta_image" />
     <meta name="og:site_name" content="DSA Santa Cruz" />
 

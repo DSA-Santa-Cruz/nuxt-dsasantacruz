@@ -6,9 +6,8 @@
       <div class="flex items-center justify-between">
         <div class="flex items-center">
           <NuxtLink to="/">
-            <IconsLogomark class="h-20 w-20" />
+            <IconsLogoLockup class="h-24 -my-2 w-auto" />
           </NuxtLink>
-          <span class="text-lg ml-1">DSA Santa Cruz</span>
         </div>
         <ul class="hidden md:flex space-x-6 items-center text-sm lg:text-base">
           <li v-for="item in nav" :key="item">
@@ -36,7 +35,8 @@ export default {
       { label: "Articles", url: "/articles" },
       { label: "Working Groups", url: "/working-groups/" },
       { label: "About", url: "/about/" },
-      { label: "Contact", url: "/contact/" },
+      // { label: "Contact", url: "/contact/" },
+      { label: "Donate", url: "/donate/" },
     ],
   }),
 };

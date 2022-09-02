@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pt-24">
     <AtomsMeta :content="document" />
     <LazyOrganismsUpcomingEvents all />
     <LazyOrganismsFooter />
