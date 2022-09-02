@@ -12,11 +12,14 @@
   </label>
 </template>
 
-<script>
+<script setup>
 const emit = defineEmits(["update:modelValue"]);
 const updateValue = event => {
   emit("update:modelValue", event.target.value);
 };
+</script>
+
+<script>
 export default {
   props: {
     label: {
