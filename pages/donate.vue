@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-36 overflow-auto">
+  <div class="pt-24 overflow-auto">
     <div class="bg-white py-12">
       <Container>
         <OrganismsDonate />
