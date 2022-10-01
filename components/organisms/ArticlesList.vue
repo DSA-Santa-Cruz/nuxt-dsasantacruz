@@ -19,20 +19,7 @@
           v-model="query"
         />
         <IconsClose
-          class="
-            h-4
-            w-4
-            right-1
-            absolute
-            fill-black
-            hover:fill-red
-            flex-shrink-0
-            z-10
-            transition
-            duration-100
-            top-2
-            cursor-pointer
-          "
+          class="h-4 w-4 right-1 absolute fill-black hover:fill-red flex-shrink-0 z-10 transition duration-100 top-2 cursor-pointer"
           @click="query = ''"
           :class="{ 'opacity-0': !query.length }"
         />
@@ -142,7 +129,7 @@ export default {
               );
           }
         })
-        .slice(4, 4 + this.visible);
+        .slice(this.query ? 0 : 4, 4 + this.visible);
     },
   },
 };
