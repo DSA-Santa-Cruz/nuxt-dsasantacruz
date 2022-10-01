@@ -1,5 +1,3 @@
-import { defineNuxtConfig } from "nuxt";
-
 export default defineNuxtConfig({
   runtimeConfig: {
     public: {
@@ -13,10 +11,7 @@ export default defineNuxtConfig({
   target: "static",
   pageTransition: "page",
   layoutTransition: "page",
-  modules: [
-    "@nuxtjs/prismic",
-    "@nuxtjs/tailwindcss",
-  ],
+  modules: ["@nuxtjs/prismic", "@nuxtjs/tailwindcss"],
   prismic: {
     linkResolver: "@/app/prismic/linkResolver",
     endpoint: process.env.PRISMIC_REPO,

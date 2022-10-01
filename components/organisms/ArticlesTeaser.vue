@@ -39,21 +39,16 @@
                     article.data.title.length < 50 &&
                     article.data.title.length >= 30,
                   'text-2xl': i === 0 && article.data.title.length >= 50,
-                  'font-graph': i === 0,
-                  'text-base font-bold': i !== 0,
+                  'font-graph underline  decoration-offset-2 decoration-white/0 group-hover:decoration-white/50 transition duration-200':
+                    i === 0,
+                  'text-base font-bold deocration-2 underline decoration-offset-2 decoration-red/0 group-hover:decoration-red/50 transition duration-200':
+                    i !== 0,
                 }"
               >
                 {{ article.data.title }}
               </h3>
               <p
-                class="
-                  font-medium
-                  whitespace-pre-wrap
-                  text-xxs
-                  tracking-[0.5px]
-                  uppercase
-                  mt-2
-                "
+                class="font-medium whitespace-pre-wrap text-xxs tracking-[0.5px] uppercase mt-2"
                 :class="{
                   'tracking-[0.5px]': i === 0,
                   'text-red': i !== 0,

@@ -6,15 +6,7 @@
   >
     <div class="relative z-10">
       <h3
-        class="
-          leading-[1.1]
-          text-red
-          tracking-[0.5px]
-          font-graph
-          group-hover:text-black
-          transition
-          duration-200
-        "
+        class="leading-[1.1] text-red tracking-[0.5px] font-graph group-hover:text-black transition duration-200"
         :class="{
           'text-xl lg:text-2xl': !large,
           'text-2xl': large,
@@ -23,14 +15,7 @@
         {{ content.data.title }}
       </h3>
       <p
-        class="
-          font-medium
-          whitespace-pre-wrap
-          text-xs
-          tracking-[0.5px]
-          uppercase
-          mt-1
-        "
+        class="font-medium whitespace-pre-wrap text-xs tracking-[0.5px] uppercase mt-1"
       >
         {{
           new Date(Date.parse(content.date || content.first_publication_date))

@@ -17,18 +17,7 @@
           class="mb-6 flex bg-white"
         >
           <div
-            class="
-              bg-black
-              text-white
-              py-6
-              flex flex-col
-              items-center
-              justify-center
-              tabular-nums
-              tracking-1
-              flex-shrink-0
-              w-32
-            "
+            class="bg-black text-white py-6 flex flex-col items-center justify-center tabular-nums tracking-1 flex-shrink-0 w-32"
           >
             <span class="text-xs uppercase">{{ event.month }}</span>
             <span class="text-xl font-bold">{{ event.date }}</span>
@@ -51,62 +40,26 @@
 </template>
 
 <script>
-const getEvents = (fetch, url) =>
-  fetch(url).then(res =>
-    res.items.map(e => {
-      const startTime = new Date(e.start.dateTime);
-      return {
-        // ...e,
-        title: e.summary,
-        dateTime: startTime,
-        month: startTime.toLocaleString("default", { month: "long" }),
-        date: startTime.getDate(),
-        day: startTime.getDay(),
-        year: startTime.getYear(),
-        time: startTime.toLocaleTimeString("en-US", {
-          hour: "numeric",
-          minute: "2-digit",
-        }),
-        end: {
-          datetime: e.end.dateTime,
-          month: e.end.dateTime,
-          day: e.end.dateTime,
-          year: e.end.dateTime,
-          time: e.end.dateTime,
-        },
-        description: e.description
-          .replace(/<p>(<br>)<\/p>/g, "")
-          .replace(/<(.*?)><\/\1>/g, ""),
-      };
-    }),
-  );
-
 export default {
-  async setup() {
-    const id = "g3tdlvc4g3fafvm1udas37futg@group.calendar.google.com";
-    const key = process?.env?.GOOGLE_CAL_KEY || "";
-    const start = new Date(new Date().getTime() - 24 * 60 * 60 * 1000);
-    const end = new Date(start.getTime() + 30 * 24 * 60 * 60 * 1000);
-    const url = `https://www.googleapis.com/calendar/v3/calendars/${id}/events?key=${key}&timeMin=${start.toISOString()}&timeMax=${end.toISOString()}&singleEvents=true&orderBy=startTime&showDeleted=false`;
-    const { data } = await useAsyncData("avents", () => getEvents($fetch, url));
-    return { allEvents: data };
-  },
   props: {
     all: {
       type: Boolean,
       default: false,
     },
+    allEvents: {
+      type: Array,
+      default: null,
+    },
   },
   computed: {
     events() {
-      if (!this.all) {
+      const { allEvents, all } = this;
+      if (!all) {
         const firstDay = new Date();
         const nextWeek = new Date(firstDay.getTime() + 7 * 24 * 60 * 60 * 1000);
-        return this.allEvents.filter(
-          e => e.dateTime.getTime() < nextWeek.getTime(),
-        );
+        return allEvents.filter(e => e.dateTime.getTime() < nextWeek.getTime());
       }
-      return this.allEvents;
+      return allEvents;
     },
   },
 };

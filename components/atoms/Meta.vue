@@ -1,8 +1,8 @@
 <template>
   <Head v-if="content">
-    <title>
+    <Title>
       {{ content.data.meta_title || content.title + " | DSA Santa Cruz" }}
-    </title>
+    </Title>
     <meta name="description" :content="content.data.meta_description" />
     <meta
       name="og:title"

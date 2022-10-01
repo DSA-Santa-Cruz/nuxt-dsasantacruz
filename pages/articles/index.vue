@@ -8,15 +8,7 @@
           class="w-full md:w-3/5 lg:w-2/3"
         />
         <ul
-          class="
-            w-full
-            md:w-2/5
-            lg:w-1/3
-            md:pl-6
-            lg:pl-8
-            pt-6
-            border-t-2 border-red
-          "
+          class="w-full md:w-2/5 lg:w-1/3 md:pl-6 lg:pl-8 pt-6 border-t-2 border-red"
         >
           <li v-for="article in sidebar" :key="article.id" class="mb-6">
             <MoleculesArticleCard :content="article" />
@@ -41,17 +33,7 @@
             :articles="articles"
           />
           <div
-            class="
-              order-1
-              md:order-2 md:pl-6
-              lg:pl-8
-              text-white
-              md:sticky
-              top-0
-              w-full
-              md:w-2/5
-              lg:w-1/3
-            "
+            class="order-1 md:order-2 md:pl-6 lg:pl-8 text-white md:sticky top-0 w-full md:w-2/5 lg:w-1/3"
           >
             <div class="mb-8 mt-3 pt-0 border-t-2 border-white">
               <h3 class="font-graph uppercase text-xl tracking-1">Follow Us</h3>
@@ -95,6 +77,25 @@
   </div>
 </template>
 
+<script setup>
+const { client } = usePrismic();
+const getData = async () => {
+  const res = await client.getAllByType("article", {
+    orderings: {
+      field: "document.first_publication_date",
+      direction: "desc",
+    },
+    fetchLinks: "author.full_name",
+    limit: 999,
+    lang: "en-us",
+  });
+  return res;
+};
+const getIndex = () => client.getSingle("article_index");
+const { data: articles } = await useAsyncData("articles", getData);
+const { data: document } = await useAsyncData("articlesIndex", getIndex);
+</script>
+
 <script>
 definePageMeta({
   layout: "scl",
@@ -103,25 +104,6 @@ export default {
   data: () => ({
     visible: 5,
   }),
-  async setup() {
-    const { client } = usePrismic();
-    const getData = async () => {
-      const res = await client.getAllByType("article", {
-        orderings: {
-          field: "document.first_publication_date",
-          direction: "desc",
-        },
-        fetchLinks: "author.full_name",
-        limit: 999,
-        lang: "en-us",
-      });
-      return res;
-    };
-    const getIndex = () => client.getSingle("article_index");
-    const { data: articles } = await useAsyncData("articles", getData);
-    const { data: document } = await useAsyncData("articlesIndex", getIndex);
-    return { articles, document };
-  },
   computed: {
     featured() {
       return this.articles[0];

@@ -6,15 +6,7 @@
           01
         </div>
         <div
-          class="
-            w-full
-            rich-text
-            text-2xl
-            xl:text-3xl
-            leading-none
-            order-1
-            mb-5
-          "
+          class="w-full rich-text text-2xl xl:text-3xl leading-none order-1 mb-5"
         >
           {{ heading }}
         </div>
@@ -27,7 +19,7 @@
           />
         </div>
         <div class="p-6 bg-red">
-          <MoleculesEmailSignUp />
+          <MoleculesEmailSignUp :short="false" />
         </div>
       </div>
     </Container>

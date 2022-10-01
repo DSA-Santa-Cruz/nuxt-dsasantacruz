@@ -23,14 +23,13 @@ export default {
     content: { type: Array, default: null },
   },
   methods: {
-    // not a full kebabing algo but replaces `_` from prismic
     camelfy(string) {
       return capitalize(camelcase(String(string)));
     },
   },
   mounted() {
     const { camelfy } = this;
-    this.content.map((d) => camelfy(d.slice_type));
+    this.content.map(d => camelfy(d.slice_type));
   },
 };
 </script>

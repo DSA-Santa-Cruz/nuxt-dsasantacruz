@@ -11,7 +11,12 @@
         </div>
         <ul class="hidden md:flex space-x-6 items-center text-sm lg:text-base">
           <li v-for="item in nav" :key="item">
-            <NuxtLink :to="item.url">{{ item.label }}</NuxtLink>
+            <NuxtLink
+              :to="item.url"
+              class="underline decoration-offset-2 decoration-white/0 hover:decoration-white/50"
+            >
+              {{ item.label }}
+            </NuxtLink>
           </li>
           <li>
             <NuxtLink to="/join/">

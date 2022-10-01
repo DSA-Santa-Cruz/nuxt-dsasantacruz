@@ -1,14 +1,20 @@
 <template>
   <form>
-    <ul class="flex flex-wrap -mx-2">
+    <ul class="flex flex-wrap text-white -mx-2">
       <li class="w-full mb-2 px-2">
-        <AtomsInput label="Email" v-model="email" />
+        <AtomsInput type="email" label="Email" v-model="form.email" />
       </li>
       <li class="w-full mb-2 sm:w-3/5 px-2">
-        <AtomsInput label="First Name" v-model="fName" />
+        <AtomsInput label="First Name" v-model="form.fName" />
+      </li>
+      <li v-if="!short" class="w-full mb-2 sm:w-2/5 px-2">
+        <AtomsInput label="Last Name" v-model="form.lName" />
       </li>
       <li class="w-full mb-2 sm:w-2/5 px-2">
-        <AtomsInput label="ZIP" v-model="zip" />
+        <AtomsInput label="ZIP" v-model="form.zip" />
+      </li>
+      <li v-if="!short" class="w-full mb-2 sm:w-3/5 px-2">
+        <AtomsInput type="tel" label="Phone" v-model="form.phone" />
       </li>
     </ul>
     <div class="mt-2 flex items-center">
@@ -31,7 +37,7 @@ export default {
   props: {
     short: {
       type: Boolean,
-      default: false,
+      default: true,
     },
   },
   data() {
@@ -40,6 +46,8 @@ export default {
       submitted: false,
       loading: false,
       form: {
+        lName: null,
+        phone: null,
         fName: null,
         email: null,
         zip: null,
