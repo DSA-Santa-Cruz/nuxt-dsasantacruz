@@ -28,7 +28,7 @@
     "lodash.kebabcase": "^4.1.1",
     "md5": "^2.3.0",
     "minisearch": "^5.0.0",
-    "nuxt": "^3.0.0-rc.11",
+    "nuxt": "^3.0.0-rc.13",
     "postcss": "^8.4.16",
     "sanitize-html": "^2.7.2",
     "stripe": "^10.8.0",
