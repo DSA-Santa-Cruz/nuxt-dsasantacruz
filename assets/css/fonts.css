@@ -1,16 +1,16 @@
 @font-face {
-  font-family:"graph";
+  font-family: "graph";
   src: url("../fonts/graph-condensed-paris-web.woff") format("woff2"),
-       url("../fonts/graph-condensed-paris-web.woff") format("woff");
+    url("../fonts/graph-condensed-paris-web.woff") format("woff");
   font-style: normal;
   font-weight: 800;
   font-display: swap;
 }
 
 @font-face {
-  font-family:"graph";
+  font-family: "graph";
   src: url("../fonts/graph-condensed-paris-web.woff") format("woff2"),
-       url("../fonts/graph-condensed-paris-web.woff") format("woff");
+    url("../fonts/graph-condensed-paris-web.woff") format("woff");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
