@@ -1,3 +1,22 @@
+<script setup>
+const { client } = usePrismic();
+const getData = async () => {
+  const res = await client.getAllByType("article", {
+    orderings: {
+      field: "document.first_publication_date",
+      direction: "desc",
+    },
+    fetchLinks: "author.full_name",
+    limit: 999,
+    lang: "en-us",
+  });
+  return res;
+};
+const getIndex = () => client.getSingle("article_index");
+const { data: articles } = await useAsyncData("articles", getData);
+const { data: document } = await useAsyncData("articlesIndex", getIndex);
+</script>
+
 <template>
   <div>
     <AtomsMeta :content="document" />
@@ -77,25 +96,6 @@
   </div>
 </template>
 
-<script setup>
-const { client } = usePrismic();
-const getData = async () => {
-  const res = await client.getAllByType("article", {
-    orderings: {
-      field: "document.first_publication_date",
-      direction: "desc",
-    },
-    fetchLinks: "author.full_name",
-    limit: 999,
-    lang: "en-us",
-  });
-  return res;
-};
-const getIndex = () => client.getSingle("article_index");
-const { data: articles } = await useAsyncData("articles", getData);
-const { data: document } = await useAsyncData("articlesIndex", getIndex);
-</script>
-
 <script>
 definePageMeta({
   layout: "scl",
@@ -103,16 +103,20 @@ definePageMeta({
 export default {
   data: () => ({
     visible: 5,
+    articles: [],
   }),
   computed: {
     featured() {
-      return this.articles[0];
+      if (this.articles) return this.articles[0];
+      return null;
     },
     sidebar() {
-      return this.articles.slice(1, 4);
+      if (this.articles) return this.articles.slice(1, 4);
+      return null;
     },
     rest() {
-      return this.articles.slice(0, this.visible);
+      if (this.articles) return this.articles.slice(0, this.visible);
+      return null;
     },
   },
 };
